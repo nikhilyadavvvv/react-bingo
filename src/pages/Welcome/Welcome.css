@@ -1,0 +1,43 @@
+.bg-image {
+  background-image: url("../../assets/images/scroll.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.start-button {
+  background-image: url("../../assets/images/start_button.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: white;
+  text-shadow: 1px 1px black;
+  background-color: transparent;
+  border: none;
+  height: 80px;
+  width: 200px;
+  font-size: 20px;
+  padding-bottom: 14px;
+  transition: 0.3s;
+  /* Add any other styling as needed */
+}
+
+.start-button:hover{
+  scale: 0.9;
+}
+

@@ -1,0 +1,208 @@
+:root {
+  --font-family: "Augusta", serif;
+  --background-image: url("../../assets/images/back.webp");
+  --paper-image-1: url("../../assets/images/paper.webp");
+  --paper-image-2: url("../../assets/images/paper2.webp");
+  --paper-image-3: url("../../assets/images/paper3.webp");
+  --paper-image-4: url("../../assets/images/paper4.webp");
+  --paper-image-5: url("../../assets/images/paper5.webp");
+  --grid-gap: 5px;
+  --transition-duration: 0.3s;
+  --stamp-animation-duration: 0.3s;
+  --ruffle-animation-duration: 1s;
+  --red-font: rgb(131, 34, 34);
+}
+
+@font-face {
+  font-family: "Augusta";
+  src: url("../../assets/font/aug.ttf") format("truetype");
+}
+
+html,
+body {
+  height: 100%;
+  background-image: var(--background-image);
+  background-repeat: repeat;
+  background-size: 100% 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: var(--grid-gap);
+}
+
+.grid-item {
+  display: flex;
+  transition: all var(--transition-duration) ease-in-out;
+  position: relative;
+}
+
+.tileChecked {
+  background-color: pink;
+}
+
+.paper-style {
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  font-family: var(--font-family);
+}
+
+.crumpled-paper {
+  background-image: var(--paper-image-1);
+}
+
+.crumpled-paper_2 {
+  background-image: var(--paper-image-2);
+}
+
+.crumpled-paper_3 {
+  background-image: var(--paper-image-3);
+}
+
+.crumpled-paper_4 {
+  background-image: var(--paper-image-4);
+}
+
+.crumpled-paper_5 {
+  background-image: var(--paper-image-5);
+}
+
+.middle-tile {
+  font-weight: bolder;
+  color: var(--red-font);
+}
+
+.rotate-10 {
+  transform: rotate(10deg);
+  transition: transform var(--transition-duration) ease-in-out;
+}
+
+.rotate-15 {
+  transform: rotate(15deg);
+  transition: transform var(--transition-duration) ease-in-out;
+}
+
+.rotate-20 {
+  transform: rotate(20deg);
+  transition: transform var(--transition-duration) ease-in-out;
+}
+
+.quote-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.quote-text::first-letter {
+  font-weight: bolder;
+  color: var(--red-font);
+}
+
+.stamp-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.stamping {
+  animation: stamp var(--stamp-animation-duration) ease-out;
+}
+
+@keyframes stamp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ruffle {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
+.ruffle {
+  animation-name: ruffle;
+  animation-duration: var(--ruffle-animation-duration);
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes bounce-trail {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.bouncing-text {
+  animation: bounce-trail 1s ease-in-out infinite;
+  display: inline-block;
+  position: relative;
+}
+
+.bouncing-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0.5;
+  font-size: 1.2em;
+  transform: scaleY(0.2);
+  filter: blur(2px);
+}
