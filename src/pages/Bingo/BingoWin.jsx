@@ -10,6 +10,7 @@ const BingoWin = ({ winText, onClick }) => {
   };
   return (
     <div
+      id="bingo-win-screen"
       onClick={onClick}
       style={{
         height: "100%",
@@ -20,6 +21,7 @@ const BingoWin = ({ winText, onClick }) => {
       className="explosion d-flex justify-content-center align-items-center flex-column"
     >
       <span
+        data-testid="win-text"
         style={{ fontSize: 100, textAlign: "center" }}
         className="bouncing-text quote-text paper-style"
         data-text={winText}

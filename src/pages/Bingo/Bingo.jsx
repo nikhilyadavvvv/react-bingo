@@ -29,7 +29,9 @@ const Bingo = () => {
   const [showExplosion, setShowExplosion] = useState(false);
   const [winText, setWinText] = useState("Bingo");
   const [isPortrait, setIsPortrait] = useState(
-    window.matchMedia("(orientation: portrait)").matches
+    typeof window !== "undefined" && typeof window.matchMedia === "function"
+      ? window.matchMedia("(orientation: portrait)").matches
+      : false
   );
   // refs
   const imgRefs = useRef([]);
@@ -64,7 +66,7 @@ const Bingo = () => {
   useEffect(() => {
     setTileWidth((width - 20) / 5);
     setTileHeight((height - 120) / 5);
-    width < 400 ? setFontSize(17) : setFontSize(20);
+    width < 400 ? setFontSize(14) : setFontSize(20);
   }, [width, height]);
 
   // generates random classes for each tile based on quoteList length
@@ -116,7 +118,7 @@ const Bingo = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" data-testid="bingo-board">
       <div
         style={{ height: "100%", position: "relative" }}
         className="d-flex justify-content-center align-items-center flex-column"

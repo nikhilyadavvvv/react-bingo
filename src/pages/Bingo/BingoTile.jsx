@@ -21,6 +21,7 @@ const BingoTile = ({
 
   return (
     <div
+      data-testid="bingo-tile"
       ref={(el) => (divRefs.current[index] = el)}
       onClick={index === 12 ? null : () => handleClick(index)}
       className={`grid-item paper-style ${randomClass}`}
@@ -33,7 +34,11 @@ const BingoTile = ({
         }`}
       >
         <span
-          style={{ fontSize: fontSize, textAlign: "center" }}
+          style={{
+            fontSize: fontSize,
+            textAlign: "center",
+            lineHeight: 0.7,
+          }}
           className="quote-text"
         >
           {quote}
@@ -44,6 +49,7 @@ const BingoTile = ({
         className="d-flex justify-content-end align-items-end stamp-div"
       >
         <img
+          data-testid="tile-stamp"
           className="hide stamping"
           src={stamp}
           height={50}

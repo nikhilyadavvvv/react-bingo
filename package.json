@@ -37,5 +37,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./src/setupTests.js"
+    ]
+  },
+  "devDependencies": {
+    "cypress": "^12.10.0"
   }
 }
