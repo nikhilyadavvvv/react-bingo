@@ -17,6 +17,8 @@ const BingoTile = ({
     padding: 10,
     width: isPortrait ? tileWidth : tileWidth - 100,
     height: isPortrait ? tileHeight : tileWidth - 100,
+    minHeight: 80,
+    minWidth: 71,
   };
 
   return (

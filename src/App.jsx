@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-import Bingo from "./pages/Bingo/Bingo";
+import React, { useState, lazy, Suspense } from "react";
 import Welcome from "./pages/Welcome/Welcome";
+import Bingo from "./pages/Bingo/Bingo";
 
 const App = () => {
   const [showBingo, setShowBingo] = useState(false);
-  if (!showBingo) {
-    return <Welcome setShowBingo={setShowBingo} />;
-  } else {
-    return <Bingo />;
-  }
+  return <>{showBingo ? <Bingo /> : <Welcome setShowBingo={setShowBingo} />}</>;
 };
 
 export default App;
